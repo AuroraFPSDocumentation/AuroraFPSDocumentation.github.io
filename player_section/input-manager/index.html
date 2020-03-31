@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Input Manager - Aurora FPS Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Input Manager";
+    var mkdocs_page_input_path = "player_section/input-manager.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Aurora FPS Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../getting-started/">Getting Started</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Player</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../overview/">Overview</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Input Manager</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#overview">Overview</a></li>
+    
+
+    <li class="toctree-l3"><a href="#create-input-mapping">Create Input Mapping</a></li>
+    
+
+    <li class="toctree-l3"><a href="#edit-input-mapping">Edit Input Mapping</a></li>
+    
+
+    <li class="toctree-l3"><a href="#add-custom-input">Add Custom Input</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../footstep-system/">Footstep System</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../..">Health System</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../..">Loot System</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../..">Grab System</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../..">Remote Body</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../..">Inverse Kinematic</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Weapon</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../weapon_section/overview/">Overview</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../weapon_section/weapon_item/">Weapon Item</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../weapon_section/bullet_item/">Bullet Item</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../..">Decal Mapping</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../..">Recoil Mapping</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">AI</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../..">Overview</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../..">Destination Map</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Manager</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../..">Spawn Manager</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../..">Terrain Manager</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Aurora FPS Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Player &raquo;</li>
+        
+      
+    
+    <li>Input Manager</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="overview">Overview</h2>
+<p><strong>Input Mapping</strong> is a button map that a player uses to move around and perform various actions, such as shooting reloading, jumping, accelerating, etc. </p>
+<p><strong>Input Mapping</strong> allows you to change the buttons, both in the editor and directly during the game or in the game menu. You can create different maps for different platforms.
+Each player has a <strong>Input Controller</strong> component on which to add <strong>Input Mapping</strong>. During the game, the <strong>Input Controller</strong> processes the <strong>Input Mapping</strong>.</p>
+<p><img alt="Screenshot" src="../../img/player/input_manager/input_controller_system_overview.png" /></p>
+<hr />
+<h2 id="create-input-mapping">Create Input Mapping</h2>
+<p>You can create a new map in two ways.</p>
+<ol>
+<li>Through the Asset Menu, this is the standard Unity menu, called
+right click in the project window. </li>
+<li>Through the Aurora Manager window.</li>
+</ol>
+<p><strong>Method 1</strong></p>
+<p>1. Go to the folder in which you want to create the map.<br>
+2. Right-click and follow this path.</p>
+
+<p><code>Create / Aurora FPS / Mapping / Input / Default</code></p>
+<p><img alt="Screenshot" src="../../img/player/input_manager/create_input_mapping.png" />
+<br><br></p>
+<p>3. After this created map will appear in the root folder.</p>
+
+<p><img alt="Screenshot" src="../../img/player/input_manager/selected_input_mapping.png" />
+<br><br></p>
+<p><strong>Method 2</strong></p>
+<p>1. Open Aurora Manager window.</p>
+
+<p><code>Aurora FPS / Aurora Manager</code></p>
+<p><img alt="Screenshot" src="../../img/player/am_menuitem.png" />
+<br><br></p>
+<p>2. Choose <b>Mapping Asset</b> section.<br><br>
+From the <b>Mapping Type</b> list, select <b>Default Input Mapping</b>. After that, all the input mapping assets that are in the project will be displayed. You can choose any of them and based on them create a new one by pressing the <b>Duplicate</b> button. This action will create a new map based on the map you have selected. The new map will have all the buttons that were contained in the parent map. This is convenient when you have configured a specific card and want to create a new one based on it, for example, for another platform or device.</p>
+
+<p><img alt="Screenshot" src="../../img/player/footstep_system/am.png" />
+<br><br></p>
+<hr />
+<h2 id="edit-input-mapping">Edit Input Mapping</h2>
+<p>Choose <strong>Input Mapping</strong> asset which you want to configure in project window and double click it.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you want to edit <strong>Input Mappping</strong> asset that used by your player. Find it on <strong>Input Manager</strong> compoennt in player prefab and double click it.</p>
+</div>
+<p><img alt="Screenshot" src="../../img/player/input_manager/player_default_input_mapping.png" />
+<br><br></p>
+<p>After double click in the Inspector window will be open <strong>Input Mapping</strong>.
+<br>
+For example lets change <strong>Sprint</strong> button</p>
+<ol>
+<li>Find <strong>Sprint</strong> in Buttons section and expand it.</li>
+<li>Change KeyCode value on any desired key.</li>
+<li>After this player will be sprinting by your setted key.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All created maps contain default inputs, these are inputs that are used by the system. The default inputs can only be read and edited, but cannot be deleted. You can create your own custom inputs that you can edit, delete and call through the API.</p>
+</div>
+<p><img alt="Screenshot" src="../../img/player/input_manager/input_mapping_configure.png" />
+<br><br></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The values contained in the <strong>Axes</strong> section are numerical values in the range -1 to 1. All values must be created in the standard Unity Input Manager <em>(this applies only to the <strong>Axes</strong> properties)</em>.</p>
+</div>
+<p><img alt="Screenshot" src="../../img/player/input_manager/unity_input_manager.png" />
+<br><br></p>
+<hr />
+<h2 id="add-custom-input">Add Custom Input</h2>
+<p>To add your button or axis, click <strong>Add Property</strong>, a small window will open in which you need to enter the key by which this button or axis will be called. Then click <strong>Apply</strong> the property will be created in the map. With this key, you can call the created property through the API.</p>
+<p><img alt="Screenshot" src="../../img/player/input_manager/input_mapping_add_input.png" />
+<br><br></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../footstep-system/" class="btn btn-neutral float-right" title="Footstep System">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../overview/" class="btn btn-neutral" title="Overview"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../overview/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../footstep-system/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
