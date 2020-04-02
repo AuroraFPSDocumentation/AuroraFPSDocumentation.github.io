@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Overview - Aurora FPS Documentation</title>
+  <title>Health System - Aurora FPS Documentation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Overview";
-    var mkdocs_page_input_path = "player_section/overview.md";
+    var mkdocs_page_name = "Health System";
+    var mkdocs_page_input_path = "player_section/health-system.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -62,15 +62,9 @@
 		
     <span class="caption-text">Player</span>
     <ul class="subnav">
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">Overview</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#create-player">Create Player</a></li>
-    
-
-    </ul>
+    <a class="" href="../overview/">Overview</a>
                 </li>
                 <li class="">
                     
@@ -80,9 +74,30 @@
                     
     <a class="" href="../footstep-system/">Footstep System</a>
                 </li>
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../health-system/">Health System</a>
+    <a class="current" href="./">Health System</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#overview">Overview</a></li>
+    
+
+    <li class="toctree-l3"><a href="#base-properties">Base Properties</a></li>
+    
+
+    <li class="toctree-l3"><a href="#regeneration-properties">Regeneration Properties</a></li>
+    
+
+    <li class="toctree-l3"><a href="#sound-effects">Sound Effects</a></li>
+    
+
+    <li class="toctree-l3"><a href="#velocity-damage-properties">Velocity Damage Properties</a></li>
+    
+
+    <li class="toctree-l3"><a href="#events">Events</a></li>
+    
+
+    </ul>
                 </li>
                 <li class="">
                     
@@ -186,7 +201,7 @@
         
       
     
-    <li>Overview</li>
+    <li>Health System</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -196,44 +211,163 @@
           <div role="main">
             <div class="section">
               
-                <h3 id="create-player">Create Player</h3>
-<p>1. Open Aurora Manager window.</p>
-
-<p><code>Aurora FPS / Aurora Manager</code></p>
-<p><img alt="Screenshot" src="../../img/player/am_menuitem.png" />
-<br><br></p>
-<p>2. Choose Player section. </p>
-
-<p><img alt="Screenshot" src="../../img/player/am_player_element.png" />
-<br><br></p>
-<p>3. Configure the player you want to create.</p>
-
-<p><img alt="Screenshot" src="../../img/player/am_player_element_properties.png" /></p>
+                <h2 id="overview">Overview</h2>
+<p>Player controller health system handled by FPHealth component.</p>
+<p><img alt="Screenshot" src="/img/player/health-system/component.png" /></p>
+<hr />
+<h2 id="base-properties">Base Properties</h2>
 <table>
 <thead>
 <tr>
-<th>Field</th>
+<th>Property</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Template</td>
-<td><strong>Advanced Rigidbody Player:</strong> This is a player that already contains preset weapons and the body of a character with animations. <strong>Simple Rigidbody Player:</strong> This is a lightweight clean player that only has all the necessary components. Weapons and bodies are not preset. (Suitable when you want to customize the player ndependently)</td>
+<td>Health</td>
+<td>Actual player controller health points.<br>Ranged between (Min Health - Max Health) proeprties.</td>
 </tr>
 <tr>
-<td>Input Mapping</td>
-<td>Map with buttons on which the player will move. The asset already has a pre-installed <strong>Input Mapping</strong> which is called <strong>Standalone Input Mapping</strong>. you can select it from the list or create your own unique one.</td>
+<td>Min Health</td>
+<td>Limit the minimum possible health of the player controller.<br>Ranged between (0 - Max Health)*.</td>
 </tr>
 <tr>
-<td>Optional Components</td>
-<td>You can also add various optional components to the player if desired <em>(depending on the template , some of the optional components may already be pre- installed in the default player)</em>.</td>
+<td>Max Health</td>
+<td>Limit the maximum possible health points of the player controller.<br>Ranged between (Min Health - ∞).</td>
 </tr>
 </tbody>
 </table>
-<p>4. Press create button. After this player will be created at the scene!</p>
-
-<p><img alt="Screenshot" src="../../img/player/player_prefab.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The player dies when their health reaches 0. When you limit a player's Min Health property to a value greater than 0, you make them immortal.
+This is useful when you want to give a player a buff or something like that <em>(For example like in Unreal Tournament, Quake, ect.)</em>.</p>
+</div>
+<hr />
+<h2 id="regeneration-properties">Regeneration Properties</h2>
+<p>Regeneration system automatically recover health points, after player controller take damage.</p>
+<p><img alt="Screenshot" src="/img/player/health-system/regeneration-properties.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rate</td>
+<td>Speed of recovery of health points <em>(in seconds)</em>.</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>How much health point add each rate.</td>
+</tr>
+<tr>
+<td>Delay</td>
+<td>Delay time before start recover health, after player take damage <em>(in seconds)</em>.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="sound-effects">Sound Effects</h2>
+<p>Sound effects that are played in various situations.</p>
+<p><img alt="Screenshot" src="/img/player/health-system/sound-effects.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Take Damage</td>
+<td>Played when player take damage.</td>
+</tr>
+<tr>
+<td>Velocity Damage</td>
+<td>Played when player take damage from velocity <em>(falling, hitting, ect.)</em>.</td>
+</tr>
+<tr>
+<td>Death</td>
+<td>Played when player is die.</td>
+</tr>
+<tr>
+<td>Heartbeat/Start</td>
+<td>Starting from what value, start playing sound.</td>
+</tr>
+<tr>
+<td>Heartbeat/Rate</td>
+<td>Play sound rate <em>(in seconds).</em></td>
+</tr>
+<tr>
+<td>Heartbeat/Sound</td>
+<td>Heartbeat sound.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="velocity-damage-properties">Velocity Damage Properties</h2>
+<p>The player can take damage from the speed of physical contact with other physical objects.</p>
+<p><img alt="Screenshot" src="/img/player/health-system/velocity-damage.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Damage</td>
+<td>The amount of damage that will be dealt in a collision in the specified range.</td>
+</tr>
+<tr>
+<td>Min Velocity</td>
+<td>Minimum velocity of collision.</td>
+</tr>
+<tr>
+<td>Max Velocity</td>
+<td>Maximum velocity of collision.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Configuration Velocity Damage</strong></p>
+<p><img alt="Screenshot" src="/img/player/health-system/velocity-damage-conf.png" /></p>
+<ul>
+<li>Use <strong>+</strong> button to add  property.</li>
+<li>Use <strong>-</strong> button to remove property.</li>
+<li>Click on the <strong>Max Velocity</strong> label to edit the maximum possible velocity value.</li>
+</ul>
+<h2 id="events">Events</h2>
+<p><img alt="Screenshot" src="/img/player/health-system/events.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>On Take Damage Event()</td>
+<td>Called when player take damage.</td>
+</tr>
+<tr>
+<td>OnWakeUp Event()</td>
+<td>Called when player wake up after die.</td>
+</tr>
+<tr>
+<td>OnDeath Event()</td>
+<td>Called when player die.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>These events are convenient for calling other functions, without having to write code.</p>
+</div>
               
             </div>
           </div>
@@ -241,10 +375,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../input-manager/" class="btn btn-neutral float-right" title="Input Manager">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../weapon_section/overview/" class="btn btn-neutral float-right" title="Overview">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../getting-started/" class="btn btn-neutral" title="Getting Started"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../footstep-system/" class="btn btn-neutral" title="Footstep System"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -270,10 +404,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../../getting-started/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../footstep-system/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../input-manager/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../weapon_section/overview/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
