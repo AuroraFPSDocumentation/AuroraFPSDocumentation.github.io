@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Overview - Aurora FPS Documentation</title>
+  <title>Rigidbody Controller - Aurora FPS Documentation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Overview";
-    var mkdocs_page_input_path = "player_section/overview.md";
+    var mkdocs_page_name = "Rigidbody Controller";
+    var mkdocs_page_input_path = "player_section/rigidbody-controller.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -64,10 +64,32 @@
     <ul class="subnav">
                 <li class=" current">
                     
-    <a class="current" href="./">Overview</a>
+    <a class="current" href="./">Rigidbody Controller</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#create-player">Create Player</a></li>
+    <li class="toctree-l3"><a href="#controller">Controller</a></li>
+    
+
+    <li class="toctree-l3"><a href="#create-controller">Create Controller</a></li>
+    
+
+    <li class="toctree-l3"><a href="#configure-controller">Configure Controller</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#base-properties">Base Properties</a></li>
+        
+            <li><a class="toctree-l4" href="#bobbing-properties">Bobbing Properties</a></li>
+        
+            <li><a class="toctree-l4" href="#field-of-view-kick">Field Of View Kick</a></li>
+        
+            <li><a class="toctree-l4" href="#zoom-properties">Zoom Properties</a></li>
+        
+            <li><a class="toctree-l4" href="#swaying-properties">Swaying Properties</a></li>
+        
+            <li><a class="toctree-l4" href="#tilts-properties">Tilts Properties</a></li>
+        
+        </ul>
     
 
     </ul>
@@ -186,7 +208,7 @@
         
       
     
-    <li>Overview</li>
+    <li>Rigidbody Controller</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -196,30 +218,27 @@
           <div role="main">
             <div class="section">
               
-                <h3 id="create-player">Create Player</h3>
-<p>1. Open Aurora Manager window.</p>
-
-<p><code>Aurora FPS / Aurora Manager</code></p>
-<p><img alt="Screenshot" src="../../img/player/am_menuitem.png" />
-<br><br></p>
-<p>2. Choose Player section. </p>
-
-<p><img alt="Screenshot" src="../../img/player/am_player_element.png" />
-<br><br></p>
-<p>3. Configure the player you want to create.</p>
-
-<p><img alt="Screenshot" src="../../img/player/am_player_element_properties.png" /></p>
+                <h2 id="controller">Controller</h2>
+<p>First person rigidbody controller handled by <strong>FPRController</strong> component.</p>
+<p><img alt="Screenshot" src="../../img/player/controller/fprcontroller-component.png" /></p>
+<hr />
+<h2 id="create-controller">Create Controller</h2>
+<ul>
+<li>Open <strong>Aurora Manager</strong> window, go to the top tabs: <code>Aurora FPS/Aurora Manager</code></li>
+<li>Choose Player section: <code>General/Player</code></li>
+</ul>
+<p><img alt="Screenshot" src="../../img/player/controller/am_player_element.png" /></p>
 <table>
 <thead>
 <tr>
-<th>Field</th>
+<th>Property</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Template</td>
-<td><strong>Advanced Rigidbody Player:</strong> This is a player that already contains preset weapons and the body of a character with animations. <strong>Simple Rigidbody Player:</strong> This is a lightweight clean player that only has all the necessary components. Weapons and bodies are not preset. (Suitable when you want to customize the player ndependently)</td>
+<td>Template &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><strong>Advanced Rigidbody Player:</strong> This is a player that already contains preset weapons and the body of a character with animations.<br><br> <strong>Simple Rigidbody Player:</strong> This is a lightweight clean player that only has all the necessary components. Weapons and bodies are not preset. (Suitable when you want to customize the player ndependently)</td>
 </tr>
 <tr>
 <td>Input Mapping</td>
@@ -231,9 +250,195 @@
 </tr>
 </tbody>
 </table>
-<p>4. Press create button. After this player will be created at the scene!</p>
-
-<p><img alt="Screenshot" src="../../img/player/player_prefab.png" /></p>
+<p>After complete configuration click <strong>Create</strong> button.</p>
+<hr />
+<h2 id="configure-controller">Configure Controller</h2>
+<p><img alt="Screenshot" src="../../img/player/controller/fprcontroller-component.png" /></p>
+<h3 id="base-properties">Base Properties</h3>
+<p><img alt="Screenshot" src="../../img/player/controller/base-properties.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Camera Instance</td>
+<td>Camera instance transform.</td>
+</tr>
+<tr>
+<td>FPCamera</td>
+<td>First person camera pivot transform (Parent gameobject of camera instance).</td>
+</tr>
+<tr>
+<td>Sensitivity X</td>
+<td>Look sensitivity by X(Horizontal) axis.</td>
+</tr>
+<tr>
+<td>Sensitivity Y</td>
+<td>Look sensitivity by Y(Vertical) axis.</td>
+</tr>
+<tr>
+<td>Limits Y</td>
+<td>Minimum Y(Vertical) look direction.<br>Maximum Y(Vertical) look direction.</td>
+</tr>
+<tr>
+<td>Position Smooth</td>
+<td>Position smooth value.</td>
+</tr>
+<tr>
+<td>Rotation Smooth</td>
+<td>Rotation smooth value.</td>
+</tr>
+<tr>
+<td>Limits Y</td>
+<td>Clamp Vertical Rotation.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bobbing-properties">Bobbing Properties</h3>
+<p>Camera shaking while moving and jumping.</p>
+<p><img alt="Screenshot" src="../../img/player/controller/bobbing-properties.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HeadBob/Settings</td>
+<td>Asset file with head bob settings.</td>
+</tr>
+<tr>
+<td>HeadBob/Use Head Bob</td>
+<td>If true head bob will be processed. Otherwise false.</td>
+</tr>
+<tr>
+<td>Jump Bob/Duration</td>
+<td>Jump bob duration.</td>
+</tr>
+<tr>
+<td>Jump Bob/Amount</td>
+<td>Jump bob amount.</td>
+</tr>
+<tr>
+<td>Jump Bob/Use Jump Bob</td>
+<td>If true jump bob will be processed. Otherwise false.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="field-of-view-kick">Field Of View Kick</h3>
+<p>Field of view processing when player start sprinting.</p>
+<p><img alt="Screenshot" src="../../img/player/controller/fov-kick.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FOV Value</td>
+<td>Increase field of view value.</td>
+</tr>
+<tr>
+<td>Increase Speed</td>
+<td>Increase speed to kick field of view value.</td>
+</tr>
+<tr>
+<td>Decrease Speed</td>
+<td>Decrease speed to default field of view value.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="zoom-properties">Zoom Properties</h3>
+<p>Field of view processing when player start zooming.</p>
+<p><img alt="Screenshot" src="../../img/player/controller/zoom-properties.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Handle Type &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>Hold: Zoom processing while zoom input pressed.<br><br>Trigger: Zoom processing when zoom input pressed once, and stop processing zoom input pressed again.</td>
+</tr>
+<tr>
+<td>Increase Speed</td>
+<td>Speed to zoom field of view value.</td>
+</tr>
+<tr>
+<td>Decrease Speed</td>
+<td>Speed to default field of view value.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="swaying-properties">Swaying Properties</h3>
+<p>Swaying camera to the sides when player moving left or right.</p>
+<p><img alt="Screenshot" src="../../img/player/controller/swaying-properties.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Amount</td>
+<td>Camera swaying amount (Max sway camera angle).</td>
+</tr>
+<tr>
+<td>Speed</td>
+<td>Swaying speed.</td>
+</tr>
+<tr>
+<td>Return Speed</td>
+<td>Return speed on default angle.</td>
+</tr>
+<tr>
+<td>Use Camera Sway</td>
+<td>If true camera sway will be processed. Otherwise false.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tilts-properties">Tilts Properties</h3>
+<p>Swaying camera to the sides when player moving left or right.</p>
+<p><img alt="Screenshot" src="../../img/player/controller/tilts-properties.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Output</td>
+<td>Tilt output value.</td>
+</tr>
+<tr>
+<td>Output Speed</td>
+<td>Speed tilt to output value.</td>
+</tr>
+<tr>
+<td>Angle</td>
+<td>Tilt angle value.</td>
+</tr>
+<tr>
+<td>Angle Speed</td>
+<td>Speed tilt to target angle.</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div>
