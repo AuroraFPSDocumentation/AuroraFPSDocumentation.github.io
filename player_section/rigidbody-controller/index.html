@@ -97,6 +97,14 @@
         
             <li><a class="toctree-l4" href="#ground-properties">Ground Properties</a></li>
         
+            <li><a class="toctree-l4" href="#jump-properties">Jump Properties</a></li>
+        
+            <li><a class="toctree-l4" href="#crouch-properties">Crouch Properties</a></li>
+        
+            <li><a class="toctree-l4" href="#climb-properties">Climb Properties</a></li>
+        
+            <li><a class="toctree-l4" href="#controller-events">Controller Events</a></li>
+        
         </ul>
     
 
@@ -377,7 +385,7 @@
 <tbody>
 <tr>
 <td>Handle Type <img width=50/></td>
-<td>Hold: Zoom processing while zoom input pressed.<br><br>Trigger: Zoom processing when zoom input pressed once, and stop processing zoom input pressed again.</td>
+<td><strong>Hold:</strong> Zoom processing while zoom input pressed.<br><br><strong>Trigger:</strong> Zoom processing when zoom input pressed once, and stop processing zoom input pressed again.</td>
 </tr>
 <tr>
 <td>Increase Speed</td>
@@ -561,6 +569,134 @@
 </tr>
 </tbody>
 </table>
+<h3 id="jump-properties">Jump Properties</h3>
+<p><img alt="Screenshot" src="../../img/player/controller/jump-properties.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Air Control</td>
+<td><strong>Input:</strong> while the player is in air, control is controlled using the movement buttons.<br><br><strong>Camera:</strong> While the player is in air, the player moves in the direction of the camera.</td>
+</tr>
+<tr>
+<td>Force</td>
+<td>Jump force.</td>
+</tr>
+<tr>
+<td>Speed</td>
+<td>Movement speed while player is in air.</td>
+</tr>
+<tr>
+<td>Max Jump Count</td>
+<td>Max available jump count.<br>Suitable for games like Quake or Unreal Tournament.</td>
+</tr>
+<tr>
+<td>Multiple Jump Force</td>
+<td>Jump force when the player jumps more than once.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="crouch-properties">Crouch Properties</h3>
+<p><img alt="Screenshot" src="../../img/player/controller/crouch-properties.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Handle Type <img width=50/></td>
+<td><strong>Hold:</strong> Required to hold button for still crouching.<br><br><strong>Trigger:</strong> Required to press button for crouching and press againg to stand.</td>
+</tr>
+<tr>
+<td>Speed</td>
+<td>Movement speed while crouching.</td>
+</tr>
+<tr>
+<td>Crouch Speed</td>
+<td>The speed of change of the size of the Collider.</td>
+</tr>
+<tr>
+<td>Height</td>
+<td>Controller height while crouching.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="climb-properties">Climb Properties</h3>
+<p><img alt="Screenshot" src="../../img/player/controller/climb-properties.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Climb Movement</td>
+<td><strong>Free:</strong> Controller can move on any directions.<br><br><strong>Vertical:</strong> Controller can only move vertically.</td>
+</tr>
+<tr>
+<td>Speed</td>
+<td>Controller speed while climbing.</td>
+</tr>
+<tr>
+<td>Camera Lock</td>
+<td>Lock camera rotation while climbing.</td>
+</tr>
+<tr>
+<td>Sound Properties/Rate</td>
+<td>Rate of play climb sound while controller climbing.</td>
+</tr>
+<tr>
+<td>Sound Properties/Sound</td>
+<td>Sound instance.</td>
+</tr>
+<tr>
+<td>Advanced Properties/Check Rate</td>
+<td>The rate with which the climbable object will be checked in front of the player.</td>
+</tr>
+<tr>
+<td>Advanced Properties/Culling Layer</td>
+<td>Limit the check climbable objects in these layers.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="controller-events">Controller Events</h3>
+<p><img alt="Screenshot" src="../../img/player/controller/controller-events.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OnEnable Event()</td>
+<td>Called when controller become enabled.</td>
+</tr>
+<tr>
+<td>OnDisable Event()</td>
+<td>Called when controller become disabled.</td>
+</tr>
+<tr>
+<td>OnGrounded Event()</td>
+<td>Called when controller become grounded.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>These events are convenient for calling other functions, without having to write code.</p>
+</div>
               
             </div>
           </div>
