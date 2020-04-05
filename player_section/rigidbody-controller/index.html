@@ -89,6 +89,14 @@
         
             <li><a class="toctree-l4" href="#tilts-properties">Tilts Properties</a></li>
         
+            <li><a class="toctree-l4" href="#movement-properties">Movement Properties</a></li>
+        
+            <li><a class="toctree-l4" href="#speed-properties">Speed Properties</a></li>
+        
+            <li><a class="toctree-l4" href="#step-offset-properties">Step Offset Properties</a></li>
+        
+            <li><a class="toctree-l4" href="#ground-properties">Ground Properties</a></li>
+        
         </ul>
     
 
@@ -116,7 +124,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../..">Remote Body</a>
+    <a class="" href="../remote-body/">FPS Body</a>
                 </li>
                 <li class="">
                     
@@ -131,7 +139,7 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../weapon_section/overview/">Overview</a>
+    <a class="" href="../../weapon_section/overview/">Instance</a>
                 </li>
                 <li class="">
                     
@@ -158,7 +166,7 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../..">Overview</a>
+    <a class="" href="../..">Core</a>
                 </li>
                 <li class="">
                     
@@ -231,13 +239,13 @@
 <table>
 <thead>
 <tr>
-<th>Property</th>
+<th>Property <img width=320/></th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Template &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>Template</td>
 <td><strong>Advanced Rigidbody Player:</strong> This is a player that already contains preset weapons and the body of a character with animations.<br><br> <strong>Simple Rigidbody Player:</strong> This is a lightweight clean player that only has all the necessary components. Weapons and bodies are not preset. (Suitable when you want to customize the player ndependently)</td>
 </tr>
 <tr>
@@ -368,7 +376,7 @@
 </thead>
 <tbody>
 <tr>
-<td>Handle Type &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>Handle Type <img width=50/></td>
 <td>Hold: Zoom processing while zoom input pressed.<br><br>Trigger: Zoom processing when zoom input pressed once, and stop processing zoom input pressed again.</td>
 </tr>
 <tr>
@@ -436,6 +444,120 @@
 <tr>
 <td>Angle Speed</td>
 <td>Speed tilt to target angle.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="movement-properties">Movement Properties</h3>
+<p><img alt="Screenshot" src="../../img/player/controller/movement-properties.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Mode <img width=100/></th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Velocity</td>
+<td>Instant change of speed to the required value from the start of movement, a more arcade and dynamic style of play, as it was in the games Quake or Unreal Tournament.</td>
+</tr>
+<tr>
+<td>Add Force</td>
+<td>Smoothly changes the speed to the required value, taking into account the mass, a more realistic style of play in comparison with <strong>Velocity</strong> mode.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="speed-properties">Speed Properties</h3>
+<p><img alt="Screenshot" src="../../img/player/controller/speed-properties.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Property <img width=120/></th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Walk Speed</td>
+<td>Speed while active walking state.</td>
+</tr>
+<tr>
+<td>Run Speed</td>
+<td>Speed while active running state.</td>
+</tr>
+<tr>
+<td>Sprint Speed</td>
+<td>Speed while active sprinting state.</td>
+</tr>
+<tr>
+<td>Backward Persent</td>
+<td>How many percent of the current speed will be saved while moving backward.</td>
+</tr>
+<tr>
+<td>Side Persent</td>
+<td>How many percent of the current speed will be saved while moving on sides.</td>
+</tr>
+<tr>
+<td>Zoom Persent</td>
+<td>How many percent of the current speed will be saved while zoomming.</td>
+</tr>
+<tr>
+<td>Sprint Direction</td>
+<td>When moving in which directions the player can accelerate.</td>
+</tr>
+<tr>
+<td>Gradual Acceleration</td>
+<td>Gradual change movement speed. &nbsp; <code>Idle -&gt; Walk -&gt; Run -&gt; Sprint</code><br>For example: The player will only be able to go to the sprinting speed, when he reach the running speed.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="step-offset-properties">Step Offset Properties</h3>
+<p>It's the handling of stairs and small ground obstacles.</p>
+<p><img alt="Screenshot" src="../../img/player/controller/step-offset-properties.png" /></p>
+<p><img alt="Screenshot" src="../../img/player/controller/step-offset-overview.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Max Height</td>
+<td>The maximum detection height of step.</td>
+</tr>
+<tr>
+<td>Check Range</td>
+<td>The maximum detection range of step.</td>
+</tr>
+<tr>
+<td>Smooth</td>
+<td>The speed at which the height changes when detected.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ground-properties">Ground Properties</h3>
+<p><img alt="Screenshot" src="../../img/player/controller/ground-properties.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Slope Modifier</td>
+<td>Speed modifier curve when moving along slope.</td>
+</tr>
+<tr>
+<td>Ground Distance</td>
+<td>Max distance to check ground.</td>
+</tr>
+<tr>
+<td>Stick Distance</td>
+<td>The maximum distance at which the player will be stick to the ground.</td>
 </tr>
 </tbody>
 </table>
