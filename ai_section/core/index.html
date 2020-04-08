@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Core - Aurora FPS Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Core";
+    var mkdocs_page_input_path = "ai_section/core.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Aurora FPS Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../getting-started/">Getting Started</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Player</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../player_section/rigidbody-controller/">Rigidbody Controller</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../player_section/input-manager/">Input Manager</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../player_section/footstep-system/">Footstep System</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../player_section/health-system/">Health System</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../player_section/loot-system/">Loot System</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../player_section/grab-system/">Grab System</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../player_section/remote-body/">FPS Body</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../..">Inverse Kinematic</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Weapon</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../weapon_section/overview/">Instance</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../weapon_section/weapon_item/">Weapon Item</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../weapon_section/bullet_item/">Bullet Item</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">AI</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">Core</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#create-ai-controller">Create AI Controller</a></li>
+    
+
+    <li class="toctree-l3"><a href="#ai-core">AI Core</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#add-behaviour">Add Behaviour</a></li>
+        
+            <li><a class="toctree-l4" href="#behaviour-properties">Behaviour Properties</a></li>
+        
+            <li><a class="toctree-l4" href="#transitions">Transitions</a></li>
+        
+            <li><a class="toctree-l4" href="#conditions">Conditions</a></li>
+        
+            <li><a class="toctree-l4" href="#logical-operators">Logical Operators</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Aurora FPS Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>AI &raquo;</li>
+        
+      
+    
+    <li>Core</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="create-ai-controller">Create AI Controller</h2>
+<ul>
+<li>Open <strong>Aurora Manager</strong> window, go to the top tabs: <code>Aurora FPS/Aurora Manager</code></li>
+<li>Choose Player section: <code>Artificial Intelligence</code></li>
+</ul>
+<p><img alt="Screenshot" src="../../img/ai/core/am-ai.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Property <img width=275/></th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Template</td>
+<td><strong>NPC:</strong> AI controller with a base movemnt animator controller.<br><br><strong>Soldier:</strong> AI controller with a movement, weapon, etc. animator controller.</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>Name of AI controller.</td>
+</tr>
+<tr>
+<td>Body</td>
+<td>Add body gameobject for AI controller.</td>
+</tr>
+<tr>
+<td>Avatar</td>
+<td>Avatar for added gameobject body.</td>
+</tr>
+<tr>
+<td>Tag</td>
+<td>Tag for AI controller by default setted <code>Default</code> tag.</td>
+</tr>
+<tr>
+<td>Layer</td>
+<td>Layer for AI controller by default setted <code>Default</code> layer.</td>
+</tr>
+<tr>
+<td>Has Ragdoll</td>
+<td>Apply <code>True</code> if you add in <strong>Body</strong> property ragdolled body gameobject. Because if is it true system autoamtically add <strong>AIAdaptiveRagdoll</strong> component.<br><br>You can add a ragdoll to the body and then add this body in <strong>Body</strong> property. <em>(<a href="https://docs.unity3d.com/Manual/wizard-RagdollWizard.html">How create ragdoll)</em></a></td>
+</tr>
+<tr>
+<td>Count</td>
+<td>How many instances of AI controller to create.</td>
+</tr>
+<tr>
+<td>Optional Components</td>
+<td>You can also add various optional components to the AI controller if desired <em>(depending on the template , some of the optional components may already be pre-installed in the template)</em>.</td>
+</tr>
+</tbody>
+</table>
+<p>After complete configuration click <strong>Create</strong> button.</p>
+<hr />
+<h2 id="ai-core">AI Core</h2>
+<p>AI Core is the main component in AI. It performs all the necessary calculations and settings.
+You can add different behaviours and configure transitions between them.</p>
+<p><img alt="Screenshot" src="../../img/ai/core/ai-core-component.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Default Behaviour</td>
+<td>This behaviour will be set by the AI as the start behaviour.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="add-behaviour">Add Behaviour</h3>
+<p>For add new behaviour click on <strong> Add Behaviour</strong> button and select desired behaviour.</p>
+<p><img alt="Screenshot" src="../../img/ai/core/add-behaviour.png" /></p>
+<hr />
+<h3 id="behaviour-properties">Behaviour Properties</h3>
+<p>All behaviour contains default and custom properties, they are differ depending on the behaviour.<br></p>
+<p><img alt="Screenshot" src="../../img/ai/core/behaviour-properties.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Default Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>Name of behaviour.</td>
+</tr>
+<tr>
+<td>Trasitions</td>
+<td>Transitions to other behaviours.</td>
+</tr>
+<tr>
+<td>Events</td>
+<td>Events of behaviour.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Behaviour name must be unique, you can't set two same names or set empty name.</p>
+</div>
+<hr />
+<h3 id="transitions">Transitions</h3>
+<p>Transition from one state to another when all the added conditions are met.</p>
+<p><img alt="Screenshot" src="../../img/ai/core/transitions.png" /></p>
+<table>
+<thead>
+<tr>
+<th>UI Element</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="Screenshot" src="../../img/ai/core/target-behaviour-element.png" /></td>
+<td>The behaviour to which the transition should be made when all conditions are met.</td>
+</tr>
+<tr>
+<td><img alt="Screenshot" src="../../img/ai/core/mute-transition-element.png" /></td>
+<td>Ignores this transition for processing.</td>
+</tr>
+<tr>
+<td><img alt="Screenshot" src="../../img/ai/core/remove-transition-element.png" /></td>
+<td>Remove trasition.</td>
+</tr>
+<tr>
+<td><img alt="Screenshot" src="../../img/ai/core/add-transition-element.png" /></td>
+<td>Add new transition to behaviour.</td>
+</tr>
+<tr>
+<td><img alt="Screenshot" src="../../img/ai/core/remove-transitions-element.png" /></td>
+<td>Remove all transition containing in behaviour.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="conditions">Conditions</h3>
+<p>Condition under which the transition will be made.<br>
+For add new condition to transition use <img alt="Screenshot" src="../../img/ai/core/add-condition-element.png" /> button and seleced desired condition.</p>
+<p><img alt="Screenshot" src="../../img/ai/core/add-condition.png" /></p>
+<p>All behaviour contains default and custom properties, they are differ depending on the condition.<br></p>
+<p><img alt="Screenshot" src="../../img/ai/core/edit-condition.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Default Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mute</td>
+<td>Ignores this condition for processing.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>UI Element</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="Screenshot" src="../../img/ai/core/add-condition-element.png" /></td>
+<td>Add new condition.</td>
+</tr>
+<tr>
+<td><img alt="Screenshot" src="../../img/ai/core/remove-condition-element.png" /></td>
+<td>Remove selected condition.</td>
+</tr>
+<tr>
+<td><img alt="Screenshot" src="../../img/ai/core/move-condition-element.png" /></td>
+<td>Move/Replace condition.</td>
+</tr>
+<tr>
+<td><img alt="Screenshot" src="../../img/ai/core/expand-condition-element.png" /></td>
+<td>Expaned condition to edit.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="logical-operators">Logical Operators</h3>
+<p>You can create transitions that will be performed when all the conditions are met or when one of the conditions is met.<br>
+For those who are even slightly familiar with programming, they are familiar as logical operators, in particular, for processing conditions used binary operators <code>&amp;&amp;</code> and <code>||</code>.<br></p>
+<hr />
+<h4 id="and-operator">AND (&amp;&amp;) Operator</h4>
+<p>If you want to create a transition that will only be maked when all the conditions are met. Create transition and place all desired conditions inside this transition.</p>
+<p><img alt="Screenshot" src="../../img/ai/core/and-operator.png" /></p>
+<hr />
+<h4 id="or-operator">OR (||) Operator</h4>
+<p>If you want to create a transition that will only be maked when one of the conditions is met. Create multiple transitions with same target behaviour, with different conditions, so then the transition will be maked when the conditions from one of the transitions are met.</p>
+<p><img alt="Screenshot" src="../../img/ai/core/or-operator.png" /></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../../weapon_section/bullet_item/" class="btn btn-neutral" title="Bullet Item"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../../weapon_section/bullet_item/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
