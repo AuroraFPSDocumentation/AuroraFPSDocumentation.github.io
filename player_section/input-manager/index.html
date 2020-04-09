@@ -182,7 +182,7 @@
 <p><strong>Input Mapping</strong> is a button map that a player uses to move around and perform various actions, such as shooting reloading, jumping, accelerating, etc. </p>
 <p><strong>Input Mapping</strong> allows you to change the buttons, both in the editor and directly during the game or in the game menu. You can create different maps for different platforms.
 Each player has a <strong>Input Controller</strong> component on which to add <strong>Input Mapping</strong>. During the game, the <strong>Input Controller</strong> processes the <strong>Input Mapping</strong>.</p>
-<p><img alt="Screenshot" src="../../img/player/input_manager/input_controller_system_overview.png" /></p>
+<p><img alt="Screenshot" src="/img/player/input_manager/input_controller_system_overview.png" /></p>
 <hr />
 <h2 id="create-input-mapping">Create Input Mapping</h2>
 <p>You can create a new map in two ways.</p>
@@ -196,17 +196,17 @@ right click in the project window. </li>
 <li>Go to the folder in which you want to create the map</li>
 <li>Right click and follow this path <code>Create / Aurora FPS / Mapping / Input / Default</code></li>
 </ul>
-<p><img alt="Screenshot" src="../../img/player/input_manager/create_input_mapping.png" /></p>
+<p><img alt="Screenshot" src="/img/player/input_manager/create_input_mapping.png" /></p>
 <ol>
 <li>After this created map will appear in the root folder.
-<img alt="Screenshot" src="../../img/player/input_manager/selected_input_mapping.png" /></li>
+<img alt="Screenshot" src="/img/player/input_manager/selected_input_mapping.png" /></li>
 </ol>
 <p><strong>Method 2</strong></p>
 <ul>
 <li>Open <strong>Aurora Manager</strong> window, go to the top tabs: <code>Aurora FPS/Aurora Manager</code></li>
 <li>Choose <strong>Mapping Asset</strong> section. From the <strong>Mapping Type</strong> list, select <strong>Default Input Mapping</strong>. After that, all the input mapping assets that are in the project will be displayed. You can choose any of them and based on them create a new one by pressing the <strong>Duplicate</strong> button. This action will create a new map based on the map you have selected. The new map will have all the buttons that were contained in the parent map. This is convenient when you have configured a specific card and want to create a new one based on it, for example, for another platform or device.</li>
 </ul>
-<p><img alt="Screenshot" src="../../img/player/footstep_system/am.png" /></p>
+<p><img alt="Screenshot" src="/img/player/footstep_system/am.png" /></p>
 <hr />
 <h2 id="edit-input-mapping">Edit Input Mapping</h2>
 <p>Choose <strong>Input Mapping</strong> asset which you want to configure in project window and double click it.</p>
@@ -214,7 +214,7 @@ right click in the project window. </li>
 <p class="admonition-title">Note</p>
 <p>If you want to edit <strong>Input Mappping</strong> asset that used by your player. Find it on <strong>Input Manager</strong> compoennt in player prefab and double click it.</p>
 </div>
-<p><img alt="Screenshot" src="../../img/player/input_manager/player_default_input_mapping.png" /></p>
+<p><img alt="Screenshot" src="/img/player/input_manager/player_default_input_mapping.png" /></p>
 <p>After double click in the Inspector window will be open <strong>Input Mapping</strong>.
 <br>
 For example lets change <strong>Sprint</strong> button</p>
@@ -227,16 +227,16 @@ For example lets change <strong>Sprint</strong> button</p>
 <p class="admonition-title">Note</p>
 <p>All created maps contain default inputs, these are inputs that are used by the system. The default inputs can only be read and edited, but cannot be deleted. You can create your own custom inputs that you can edit, delete and call through the API.</p>
 </div>
-<p><img alt="Screenshot" src="../../img/player/input_manager/input_mapping_configure.png" /></p>
+<p><img alt="Screenshot" src="/img/player/input_manager/input_mapping_configure.png" /></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The values contained in the <strong>Axes</strong> section are numerical values in the range -1 to 1. All values must be created in the standard Unity Input Manager <em>(this applies only to the <strong>Axes</strong> properties)</em>.</p>
 </div>
-<p><img alt="Screenshot" src="../../img/player/input_manager/unity_input_manager.png" /></p>
+<p><img alt="Screenshot" src="/img/player/input_manager/unity_input_manager.png" /></p>
 <hr />
 <h2 id="add-custom-input">Add Custom Input</h2>
 <p>To add your button or axis, click <strong>Add Property</strong>, a small window will open in which you need to enter the key by which this button or axis will be called. Then click <strong>Apply</strong> the property will be created in the map. With this key, you can call the created property through the API.</p>
-<p><img alt="Screenshot" src="../../img/player/input_manager/input_mapping_add_input.png" /></p>
+<p><img alt="Screenshot" src="/img/player/input_manager/input_mapping_add_input.png" /></p>
               
             </div>
           </div>

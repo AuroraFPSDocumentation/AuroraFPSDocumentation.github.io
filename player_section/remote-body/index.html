@@ -91,10 +91,17 @@
     <a class="current" href="./">FPS Body</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#remote-body">Remote Body</a></li>
+    <li class="toctree-l3"><a href="#first-person-body">First Person Body</a></li>
     
-
-    <li class="toctree-l3"><a href="#remote-body-duplicator">Remote Body Duplicator</a></li>
+        <ul>
+        
+            <li><a class="toctree-l4" href="#remote-body">Remote Body</a></li>
+        
+            <li><a class="toctree-l4" href="#override-animations">Override Animations</a></li>
+        
+            <li><a class="toctree-l4" href="#custom-animator-controller">Custom Animator Controller</a></li>
+        
+        </ul>
     
 
     </ul>
@@ -172,9 +179,145 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="remote-body">Remote Body</h2>
-<p><img alt="Screenshot" src="/img/player/remote_body/remote-body.png" /></p>
-<h2 id="remote-body-duplicator">Remote Body Duplicator</h2>
+                <h2 id="first-person-body">First Person Body</h2>
+<ul>
+<li>Choose <strong>Player</strong> gameobject or prefab.</li>
+<li>Add desired body inside player gameobject as child.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Body must be configured as <a href="https://docs.unity3d.com/Manual/ConfiguringtheAvatar.html"><strong>Humanoid</strong></a>!</p>
+</div>
+<p><img alt="Screenshot" src="/img/player/remote_body/first-person-body.png" /></p>
+<ul>
+<li>
+<p>Add following components to first person body gameobject.</p>
+<ul>
+<li>Animator</li>
+<li>Remote Body</li>
+</ul>
+</li>
+<li>
+<p>Add <strong>Ranged Controller</strong> animator controller in Animator component.</p>
+</li>
+</ul>
+<p><img alt="Screenshot" src="/img/player/remote_body/add-ranged-controller.png" /></p>
+<ul>
+<li>Add body Avatar in Animator component if is empty <em>(You can find it if expand body mesh prefab)</em>.</li>
+</ul>
+<p><img alt="Screenshot" src="/img/player/remote_body/add-avatar.png" /></p>
+<hr />
+<h3 id="remote-body">Remote Body</h3>
+<p>This component reads the necessary information and passes it to the animator controller.</p>
+<p><img alt="Screenshot" src="/img/player/remote_body/remote-body-component.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Body Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Controller</td>
+<td>Player first person controller references.</td>
+</tr>
+<tr>
+<td>Default Height</td>
+<td>First person body height relative Y axis while controller in stay state.</td>
+</tr>
+<tr>
+<td>Crouch Height</td>
+<td>First person body height relative Y axis while controller in crouching state.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Animator Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Speed</td>
+<td><code>Float</code></td>
+<td>Animator controller parameter name to which the vertical speed value of the player controller will be passed.</td>
+</tr>
+<tr>
+<td>Direction</td>
+<td><code>Float</code></td>
+<td>Animator controller parameter name to which the horizontal speed value of the player controller will be passed.</td>
+</tr>
+<tr>
+<td>IsCrouching</td>
+<td><code>Bool</code></td>
+<td>Animator controller parameter name to which the crouching value of the player controller will be passed.</td>
+</tr>
+<tr>
+<td>IsGrounded</td>
+<td><code>Bool</code></td>
+<td>Animator controller parameter name to which the grounded value of the player controller will be passed.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Animation Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Velocity Smooth</td>
+<td>Frequency of synchronization of the player controller values and animator values.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>UI Element</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="Screenshot" src="/img/editor_ui_elements/settings.png" /></td>
+<td>Frequency of synchronization of the player controller values and animator values.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="override-animations">Override Animations</h3>
+<ul>
+<li>Create new <a href="https://docs.unity3d.com/Manual/AnimatorOverrideController.html">Animator Override Controller </a>.</li>
+</ul>
+<p><img alt="Screenshot" src="/img/player/remote_body/create-animator-override-controller.png" /></p>
+<ul>
+<li>In animator override controller, in Controller field add animator controller that used in your first person body Animator component.</li>
+<li>Override animations.</li>
+</ul>
+<p><img alt="Screenshot" src="/img/player/remote_body/configure-animator-override-controller.png" /></p>
+<ul>
+<li>Replace animator controller that used in your first person body Animator component on created animator override controller.</li>
+</ul>
+<p><img alt="Screenshot" src="/img/player/remote_body/replace-animator-override-controller.png" /></p>
+<hr />
+<h3 id="custom-animator-controller">Custom Animator Controller</h3>
+<ul>
+<li>Create new <a href="https://docs.unity3d.com/ru/current/Manual/class-AnimatorController.html">animator controller</a>.</li>
+<li>Open it and add parameters as in Remote Body component.</li>
+<li>Add your custom animator controller in Animator component.</li>
+</ul>
+<p><img alt="Screenshot" src="/img/player/remote_body/custom-animator-controller.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The parameter names in the animator controller must match the names in the Remote Body component.</p>
+</div>
               
             </div>
           </div>
