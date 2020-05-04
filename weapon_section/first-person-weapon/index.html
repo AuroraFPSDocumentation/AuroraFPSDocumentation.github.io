@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>First Person Weapon - Aurora FPS Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "First Person Weapon";
+    var mkdocs_page_input_path = "weapon_section/first-person-weapon.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Aurora FPS Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../getting-started/">Getting Started</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Player</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../player_section/rigidbody-controller/">Rigidbody Controller</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../player_section/input-manager/">Input Manager</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../player_section/footstep-system/">Footstep System</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../player_section/health-system/">Health System</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../player_section/loot-system/">Loot System</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../player_section/grab-system/">Grab System</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../player_section/remote-body/">FPS Body</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Weapon</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">First Person Weapon</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#create-first-person-weapon">Create First Person Weapon</a></li>
+    
+
+    <li class="toctree-l3"><a href="#weapon-identifier">Weapon Identifier</a></li>
+    
+
+    <li class="toctree-l3"><a href="#animation-system">Animation System</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#transform-position">Transform Position</a></li>
+        
+            <li><a class="toctree-l4" href="#take-inout-time">Take In/Out Time</a></li>
+        
+            <li><a class="toctree-l4" href="#animator-parameters">Animator Parameters</a></li>
+        
+            <li><a class="toctree-l4" href="#sway-properties">Sway Properties</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#ray-shooting-system">Ray Shooting System</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#ray-shooting-properties">Ray Shooting Properties</a></li>
+        
+            <li><a class="toctree-l4" href="#fire-sounds">Fire Sounds</a></li>
+        
+            <li><a class="toctree-l4" href="#fire-effects">Fire Effects</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../weapon_item/">Weapon Item</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../bullet_item/">Bullet Item</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">AI</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../ai_section/core/">Core</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../ai_section/destination-map/">Destination Map</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Aurora FPS Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Weapon &raquo;</li>
+        
+      
+    
+    <li>First Person Weapon</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="create-first-person-weapon">Create First Person Weapon</h2>
+<ul>
+<li>Open <strong>Aurora Manager</strong> window, go to the top tabs: <code>Aurora FPS / Aurora Manager</code></li>
+<li>Choose Player section: <code>General / Weapon</code></li>
+</ul>
+<p><img alt="Screenshot" src="/img/weapon/first_person_weapon/am.png" /></p>
+<ul>
+<li>Configure weapon desired weapon.</li>
+</ul>
+<p><img alt="Screenshot" src="/img/weapon/first_person_weapon/am_weapon_template.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Template</td>
+<td>Select the type of weapon that is closest to the weapon you want to create. Created weapons will already have animations related to this type, but you can always replace them with your own if you want.</td>
+</tr>
+<tr>
+<td>Shooting System</td>
+<td><strong>Raycast:</strong> lightweight shooting system, does not require large costs on computer resources, shoots a physical ray.<br><br> <strong>Physics:</strong> realistic shooting system that shoots bullets, each of which is processed individually in physics. More demanding on resources (optimized through the use of built- in object pool system).</td>
+</tr>
+<tr>
+<td>Weapon Item</td>
+<td>Weapon Item asset for this weapon.</td>
+</tr>
+<tr>
+<td>Bullet Item</td>
+<td>Type of bullet that the weapon will use for fire.</td>
+</tr>
+<tr>
+<td>Override</td>
+<td>Contains objects (mesh) to override, depending on the template they can vary. When you redefine these objects, you replace the standard objects on new ones , this is a kind of auto retargeting and built- in animations will work on your created weapons.</td>
+</tr>
+<tr>
+<td>Optional Components</td>
+<td>You can also add various optional components to the weapon if desired <em>(depending on the template , some of the optional components may already be pre-installed in the weapon)</em>.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Press <img alt="Screenshot" src="/img/weapon/first_person_weapon/create-button.png" /> button, after this new weapon will be created at the scene.</li>
+<li>Make created weapon as Player camera child. <code>Player / FPCamera / CameraInstance</code>.</li>
+</ul>
+<p><img alt="Screenshot" src="/img/weapon/first_person_weapon/making-as-child.png" /></p>
+<ul>
+<li>Disable weapon gameobject.</li>
+</ul>
+<hr />
+<h2 id="weapon-identifier">Weapon Identifier</h2>
+<p>Weapon Identifier component used for detecting weapon reference by FPInvetory component.</p>
+<p><img alt="Screenshot" src="/img/weapon/first_person_weapon/weapon-identifier-component.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Weapon Item</td>
+<td>Weapon item asset for this weapon.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="animation-system">Animation System</h2>
+<p>Weapon animation system handled by <code>Weapon Animation System</code> component.</p>
+<p><img alt="Screenshot" src="/img/weapon/first_person_weapon/weapon-animation-system-component.png" /></p>
+<hr />
+<h3 id="transform-position">Transform Position</h3>
+<p><img alt="Screenshot" src="/img/weapon/first_person_weapon/was-base-properties.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Property <img width=101/></th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Default Position</td>
+<td>Position of this weapon gameobject relative camera instance gameobject. Will be automatically applyed to <code>Transform</code> component when start game.</td>
+</tr>
+<tr>
+<td>Default Rotation</td>
+<td>Rotation of this weapon gameobject relative camera instance gameobject. Will be automatically applyed to <code>Transform</code> component when start game.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>UI Element</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="Screenshot" src="/img/weapon/first_person_weapon/read-ui-element.png" /></td>
+<td>Copy position/rotation value from <code>Transform</code> component and paste.</td>
+</tr>
+<tr>
+<td><img alt="Screenshot" src="/img/weapon/first_person_weapon/write-ui-element.png" /></td>
+<td>Paste position/rotation value to <code>Transform</code> component.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="take-inout-time">Take In/Out Time</h3>
+<p><img alt="Screenshot" src="/img/weapon/first_person_weapon/was-time-properties.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Take In</td>
+<td>Time to take in weapon from invetory.</td>
+</tr>
+<tr>
+<td>Take Out</td>
+<td>Time take out weapon in inventory.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>UI Element</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="Screenshot" src="/img/editor_ui_elements/settings.png" /></td>
+<td>Show all available parameters from attached <code>Animator Controller</code> and paste selected.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="animator-parameters">Animator Parameters</h3>
+<p><img alt="Screenshot" src="/img/weapon/first_person_weapon/was-animation-properties.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Speed</td>
+<td>Animator controller parameter name to which the vertical speed value of the player controller will be passed.<br><br> <code>Typeof(float)</code></td>
+</tr>
+<tr>
+<td>Direction</td>
+<td>Animator controller parameter name to which the horizontal speed value of the player controller will be passed.<br><br> <code>Typeof(float)</code></td>
+</tr>
+<tr>
+<td>IsCrouching</td>
+<td>Animator controller parameter name to which the crouching value of the player controller will be passed.<br><br> <code>Typeof(bool)</code></td>
+</tr>
+<tr>
+<td>IsGrounded</td>
+<td>Animator controller parameter name to which the grounded value of the player controller will be passed.<br><br> <code>Typeof(bool)</code></td>
+</tr>
+<tr>
+<td>Speed Blend Time</td>
+<td>Frequency of synchronization of the player controller values and animator values.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>UI Element</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="Screenshot" src="/img/editor_ui_elements/settings.png" /></td>
+<td>Show all available parameters from attached <code>Animator Controller</code> and paste selected.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="sway-properties">Sway Properties</h3>
+<p><img alt="Screenshot" src="/img/weapon/first_person_weapon/was-sway-properties.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Position Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sensitivity</td>
+<td>Sensitivity of the mouse sway.</td>
+</tr>
+<tr>
+<td>Limit</td>
+<td>Sway position limit.</td>
+</tr>
+<tr>
+<td>Smooth</td>
+<td>Smooth value for position sway.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Rotation Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sensitivity</td>
+<td>Sensitivity of the mouse sway.</td>
+</tr>
+<tr>
+<td>Limit</td>
+<td>Sway rotation limit.</td>
+</tr>
+<tr>
+<td>Smooth</td>
+<td>Smooth value for rotation sway.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Vertical Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sensitivity</td>
+<td>Sensitivity vertcal sway.</td>
+</tr>
+<tr>
+<td>Invert</td>
+<td>Invert vertical weapon rotation.</td>
+</tr>
+<tr>
+<td>Smooth</td>
+<td>Smooth value for position sway.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="ray-shooting-system">Ray Shooting System</h2>
+<p>Ray shooting system used Raycast for shoot, this system handled by <code>Weapon Ray Shooting System</code> component.</p>
+<p><img alt="Screenshot" src="/img/weapon/first_person_weapon/weapon-ray-shooting-system-component.png" /></p>
+<hr />
+<h3 id="ray-shooting-properties">Ray Shooting Properties</h3>
+<p><img alt="Screenshot" src="/img/weapon/first_person_weapon/ray-shooting-system-base-properties.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Property <img width=395/></th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fire Mode</td>
+<td><strong>Mute:</strong> Shooting disabled.<br><br><strong>Single:</strong> Single fire.<br><br><strong>Queue:</strong> Fire with fixed queue (for example 3 fire).<br><br><strong>Free:</strong> Free fire without restrictions.</td>
+</tr>
+<tr>
+<td>Fire Point</td>
+<td>The point from which the shot will be fired. If you leave the field empty, a point will be created automatically at the start of the game and centered on the center of the screen.</td>
+</tr>
+<tr>
+<td>Bullet Item</td>
+<td>Bullet item asset.</td>
+</tr>
+<tr>
+<td>Fire Rate</td>
+<td>Rate of fire mode. You can edit fire rate for each mode. For this switch fire mode and edit this property, value will be saved automatically.</td>
+</tr>
+<tr>
+<td>Fire Range</td>
+<td>Max range of raycast.</td>
+</tr>
+<tr>
+<td>Impulse Amplifier</td>
+<td>Additional impulse for the bullet. Every bullet item asset has a impulse applied to a physical object in a collision. Weapon can add additional impulse to the bullet, since the same bullet can be used in different weapons, for example assault rifle and sniper rifle, but both of this weapons shoot with different impulse.</td>
+</tr>
+<tr>
+<td>Culling Layer</td>
+<td>Objects with which layers will be processed when fired.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="fire-sounds">Fire Sounds</h3>
+<p><img alt="Screenshot" src="/img/weapon/first_person_weapon/fire-sounds.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Array</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Normal Sounds</td>
+<td>Sounds in this array will be played randomly when weapon is shoot.</td>
+</tr>
+<tr>
+<td>Dry Sounds</td>
+<td>Sounds in this array will be played randomly when bullets is empty and weapon trying to shoot.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="fire-effects">Fire Effects</h3>
+<p><img alt="Screenshot" src="/img/weapon/first_person_weapon/fire-effects.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Array</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Effect List</td>
+<td><code>Particle System</code> effects that, will be simulated when weapon shooting.</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../weapon_item/" class="btn btn-neutral float-right" title="Weapon Item">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../player_section/remote-body/" class="btn btn-neutral" title="FPS Body"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../../player_section/remote-body/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../weapon_item/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
